@@ -20,35 +20,66 @@ public class ArrayModifyQuiz {
         // 6. 찾은 인덱스를 통해 새로운 이름으로 수정한다.
         // 7. 위 내용을 수정이 정확히 완료될때까지 반복한다.
 
+        
+        /*
         System.out.println("수정할 친구의 이름을 입력해주세요.");
         String target = sc.next();
 
-        boolean flag = false;
         while (true) {
         for (int i = 0; i < kakao.length; i++) {
             if (target.equals(kakao[i])) {
                 System.out.println("i = " + i);
-                flag = true;
 
                 System.out.println("수정할 이름을 입력해주세요.");
                 String newName = sc.next();
                 kakao[i] = newName;
 
+                System.out.println("수정된 친구 목록: " + Arrays.toString(kakao));
+                break;
+            } else {
+                System.out.println("확보 실패!");
                 break;
             }
         }
-
-        if (!flag) {
-            System.out.println("확보 실패!");
-            continue;
-        } else {
-            System.out.println("수정된 친구 목록: " + Arrays.toString(kakao));
         }
+         */
+        
+            while (true) {
+                System.out.println("수정할 친구의 이름을 입력하세요");
+                System.out.print(">> ");
+                String targetName = sc.next();
+            
+                //인덱스 탐색
+                int index = -1;
+                for (int i = 0; i < kakao.length; i++) {
+                    if(targetName.equals(kakao[i])) {
+                        index = i;
+                        break;
+                    }
+                }
+
+                // 수정 여부 판단
+
+                if(index != -1) {
+                    System.out.printf("%s의 이름을 변경합니다.\n", targetName);
+                    System.out.print(">> ");
+//                    String newName = sc.next();
+                    kakao[index] = sc.next();
+                    System.out.println("변경 완료!");
+                    System.out.println("변경 후 정보: " + Arrays.toString(kakao));
+                    break;
+
+                } else {
+                    System.out.printf("%s은(는) 없는 이름입니다.\n", targetName);
+                    continue;
+                }
+
+            } // end while
+
+            sc.close();
+
+        } // end main
+
     }
 
 
-
-
-    }
-
-}
