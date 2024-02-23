@@ -1,4 +1,4 @@
-package oop.string.String;
+package oop.string;
 
 import java.util.Scanner;
 
