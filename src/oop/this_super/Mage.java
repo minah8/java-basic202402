@@ -3,11 +3,17 @@ package oop.this_super;
 public class Mage extends Player {
 
     int mana;
-@Override
-void characterInfo() {
-    super.characterInfo();
-    System.out.println("# 마나: " + mana);
-}
+
+    Mage(String name) {
+        super(name);
+        this.mana = 100;
+    }
+
+    @Override
+    void characterInfo() {
+        super.characterInfo();
+        System.out.println("# 마나: " + mana);
+    }
 
 }
 
