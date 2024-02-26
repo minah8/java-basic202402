@@ -1,5 +1,7 @@
 package oop.obj_arr;
 
+import java.util.Scanner;
+
 public class ScoreMain {
 
     public static void main(String[] args) {
@@ -20,6 +22,38 @@ public class ScoreMain {
           주의!) 입력이 중간에 그만두어진다면, 배열의 나머지 인덱스는
           모두 null로 가득 차 있습니다. (null.scoreInfo() -> 에러)
          */
+
+        Scanner sc = new Scanner(System.in);
+        Score[] people = new Score[100];
+
+        for (int i = 0; i < people.length; i++) {
+            System.out.println(i + 1 + "의 정보를 입력해주세요.");
+            System.out.println("'그만'을 입력하면 종료됩니다.");
+            System.out.print("이름: ");
+            String name = sc.next();
+            if (name.equals("그만")) {
+                System.out.println("입력을 종료합니다.");
+                break;
+            }
+            System.out.print("국어: ");
+            int korean = sc.nextInt();
+            System.out.print("영어: ");
+            int english = sc.nextInt();
+            System.out.print("수학: ");
+            int math = sc.nextInt();
+
+            people[i] = new Score(name, korean, english, math);
+            System.out.println("** 정보 입력 완료 **");
+
+        }
+
+        for (Score p : people) {
+            if (p == null) break;
+            p.scoreInfo();
+        }
+
+        sc.close();
+
 
     }
 
