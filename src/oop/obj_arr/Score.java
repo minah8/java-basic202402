@@ -13,30 +13,86 @@ public class Score {
      - 캡슐화를 구현해서 작성해 주세요. (생성자는 맘대로 하세요.)
     */
 
-    String name;
-    int korean;
-    int english;
-    int math;
-    int total;
-    double average;
+    private String name;
+    private int korean;
+    private int english;
+    private int math;
+    private int total;
+    private double average;
 
-    Score(String name, int korean, int english, int math, int total, double average) {}
+    public String getName() {
+        return name;
+    }
 
-    Score(String name, int korean, int english, int math) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getKorean() {
+        return korean;
+    }
+
+    public void setKorean(int korean) {
         this.korean = korean;
+    }
+
+    public int getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(int english) {
         this.english = english;
+    }
+
+    public int getMath() {
+        return math;
+    }
+
+    public void setMath(int math) {
         this.math = math;
-        this.total = korean + english + math;
-        this.average = (double) this.total / 3;
     }
 
-    void scoreInfo() {
-        System.out.printf("%s의 점수\n국어: %d, 영어: %d, 수학: %d\n합계: %d, 평균: %.2f\n"
-                , this.name, this.korean, this.english, this.math, this.total, this.average);
+    public int getTotal() {
+        return total;
     }
 
+    /*
+    public void setTotal() {
+        // 이미 korean, english, math가 세팅이 완료되었다고 가정.
+        this.total = this.korean + this.english + this.math;
+    }
+     */
 
+    public double getAverage() {
+        return average;
+    }
+    /*
+    public void setAverage() {
+        this.average = this.total / 3.0;
+    }
+     */
 
+    // 총점과 평균을 한번에 계산해서 세팅하는 메서드
+    public void setTotalAndAge() {
+        this.total = this.korean + this.english + this.math;
+        this.average = this.total / 3.0;
+
+    }
+
+    public void scoreInfo() {
+        System.out.printf("이름: %s  국어: %d점  영어: %d점  수학: %d점\n총점: %d점  평균: %.2f점\n"
+                , name, korean, english, math, total, average);
+    }
+
+    // 점수 유효성 검증
+    public boolean isValidateScore(int score) {
+        if(score > 100 || score < 0) {
+            System.out.println("유효하지 않은 점수입니다. (0 ~ 100)");
+            return false;
+        }
+        return true;
+    }
 
 }
+
+

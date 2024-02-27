@@ -24,37 +24,70 @@ public class ScoreMain {
          */
 
         Scanner sc = new Scanner(System.in);
-        Score[] people = new Score[100];
+        Score[] scoreList = new Score[100];
 
-        for (int i = 0; i < people.length; i++) {
-            System.out.println(i + 1 + "의 정보를 입력해주세요.");
-            System.out.println("'그만'을 입력하면 종료됩니다.");
-            System.out.print("이름: ");
+        System.out.println("*** 학생 점수 입력 프로그램 ***");
+        System.out.println("# 이름 입력창에 '그만'을 입력하시면 종료됩니다.");
+        int idx = 0;
+
+//        while (scoreList[scoreList.length-1] == null) {
+        while (idx != scoreList.length)  {
+
+            System.out.print("# 이름: ");
             String name = sc.next();
-            if (name.equals("그만")) {
+            if(name.equals("그만")) {
                 System.out.println("입력을 종료합니다.");
                 break;
             }
-            System.out.print("국어: ");
+
+            Score s = new Score();
+
+            System.out.println("# 국어: ");
             int korean = sc.nextInt();
-            System.out.print("영어: ");
+            if(!s. isValidateScore(korean)) {
+                continue;
+            }
+
+            System.out.println("# 영어: ");
             int english = sc.nextInt();
-            System.out.print("수학: ");
+            if(!s. isValidateScore(english)) {
+                continue;
+            }
+
+            System.out.println("# 수학: ");
             int math = sc.nextInt();
+            if(!s. isValidateScore(math)) {
+                continue;
+            }
 
-            people[i] = new Score(name, korean, english, math);
-            System.out.println("** 정보 입력 완료 **");
+            s.setName(name);
+            s.setKorean(korean);
+            s.setEnglish(english);
+            s.setMath(math);
+            s.setTotalAndAge();
 
-        }
+//            int total = korean + english + math;
+//            double avg = total / 3.0;
+//            s.setAverage(avg);
 
-        for (Score p : people) {
-            if (p == null) break;
-            p.scoreInfo();
-        }
+            scoreList[idx] =s;
+            idx++;
+
+            System.out.println("*** 학생 정보 입력 완료! ***\n");
+            } // 입력 반복문 끝
+
+            for (Score score : scoreList) {
+                if(score == null) break;
+                score.scoreInfo();
+                System.out.println("-------------------------------");
+            }
 
         sc.close();
 
 
+        }
+
+
     }
 
-}
+
