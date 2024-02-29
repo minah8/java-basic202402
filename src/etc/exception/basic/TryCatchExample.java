@@ -8,6 +8,7 @@ public class TryCatchExample {
 
         Scanner sc = new Scanner(System.in);
 
+        try {
         System.out.print("정수1: ");
         int i = sc.nextInt();
         System.out.print("정수2: ");
@@ -15,7 +16,6 @@ public class TryCatchExample {
 
         System.out.println("나눗셈 시작!");
 
-        try {
             // try 블록에는 예외 발생 가능성이 있는 코드를 배치합니다.
             System.out.printf("%d / %d = %d\n", i, j, i/j);
         } catch (Exception e) {
