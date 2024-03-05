@@ -115,6 +115,7 @@ public class LottoSimulator {
 
             if (prize1 == 1) {
                 System.out.println("축하합니다! 1등에 당첨되셨습니다.");
+                System.out.println("당첨번호" + win);
                 System.out.printf("누적 당첨 횟수\n2등: %d회\n3등: %d회\n4등: %d회\n5등: %d회\n꽝: %d회\n"
                         , prize2, prize3, prize4, prize5, failCnt);
 

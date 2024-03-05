@@ -16,7 +16,7 @@ public class MainClass {
           유지보수성, 코드의 재사용성이 높아집니다.
          */
 
-        Box<String> box = new<>Box();
+        Box<String> box = new Box<>();
         box.setObj(new String("홍길동"));
         int length = box.getObj().length(); // 형 변환이 따로 필요 없다.
 
