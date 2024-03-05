@@ -58,7 +58,7 @@ public class MapQuiz {
         for (String s : engKor.keySet()) {
             System.out.printf("%s : %s\n", s, engKor.get(s));
         }
-ㅁ
+
 
         sc.close();
 
