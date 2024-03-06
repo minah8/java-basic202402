@@ -124,7 +124,7 @@ public class LottoSimulator {
 
                 break; // 1등 당첨이 한 번이라도 된다면 반복문 종료.
             } else {
-                System.out.println("로또 " + paper + "장 째 구매 중...");
+//                System.out.println("로또 " + paper + "장 째 구매 중...");
             }
 
         }
