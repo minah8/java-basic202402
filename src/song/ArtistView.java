@@ -28,7 +28,7 @@ public class ArtistView {
             System.out.println("\n\n****** 음악 관리 프로그램 ******");
             System.out.println("# 1. 노래 등록하기");
             System.out.println("# 2. 노래 정보 검색");
-            System.out.println("# 3. ");
+            System.out.println("# 3. 현재까지의 데이터 저장하기");
             System.out.println("# 4. 프로그램 종료");
 
             makeLine();
