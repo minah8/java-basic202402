@@ -1,14 +1,12 @@
 package video.user.service;
 
-import etc.generic.bad.Person;
-import oop.inter.bad.Join;
 import video.common.AppService;
-import video.ui.AppUi;
+
 import video.user.domain.Grade;
 import video.user.domain.User;
 import video.user.repository.UserRepository;
 
-import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class UserService implements AppService {
                     join();
                     break;
                 case 2:
-                    showSearchUser();;
+                    showSearchUser();
                     break;
                 case 3:
                     deleteUser();

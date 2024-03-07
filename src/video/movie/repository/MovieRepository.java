@@ -1,6 +1,5 @@
 package video.movie.repository;
 
-import etc.generic.bad.Person;
 import video.common.Condition;
 import video.movie.domain.Movie;
 
@@ -50,7 +49,7 @@ public class MovieRepository {
     }
 
 
-    public List<Movie> searchMovieList(Condition condition, String keyword) throws Exception{
+    public List<Movie> searchMovieList(Condition condition, String keyword) throws Exception {
         if (condition == PUB_YEAR) {
             return searchByPubYear(keyword);
         } else if (condition == NATION) {
@@ -111,8 +110,35 @@ public class MovieRepository {
         }
         return searchedList;
     }
+
     public Movie deleteMovie(int delMovieNum) {
         return movieDatabase.remove(delMovieNum);
     }
 
+    public List<Movie> searchByRental(boolean possible) {
+        List<Movie> searchedList = new ArrayList<>();
+
+        if (possible) { // 대여 가능한 Movie들만 거르기
+            for (int key : movieDatabase.keySet()) {
+                Movie movie = movieDatabase.get(key);
+                if (!movie.isRental()) {
+                    searchedList.add(movie);
+                }
+            }
+
+        } else { // 이미 대여중인 Movie들만 거르기
+            for (int key : movieDatabase.keySet()) {
+                Movie movie = movieDatabase.get(key);
+                if (movie.isRental()) {
+                    searchedList.add(movie);
+                }
+            }
+
+        }
+            return searchedList;
+    }
+
+    public Movie searchMovie(int movieNumber) {
+        return movieDatabase.get(movieNumber);
+    }
 }
