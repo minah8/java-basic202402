@@ -44,6 +44,7 @@ public class MovieRepository {
         movieDatabase.put(movie10.getSerialNumber(), movie10);
     }
 
+
     public void addMovie(Movie movie) {
         movieDatabase.put(movie.getSerialNumber(), movie);
     }
@@ -110,4 +111,8 @@ public class MovieRepository {
         }
         return searchedList;
     }
+    public Movie deleteMovie(int delMovieNum) {
+        return movieDatabase.remove(delMovieNum);
+    }
+
 }
