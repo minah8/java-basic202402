@@ -1,13 +1,14 @@
 package video.main;
 
 import video.common.AppService;
+import video.movie.service.MovieService;
 import video.user.service.UserService;
 
 public class AppController {
 
     private AppService service;
 
-    // 선택한 멘에 따라 기능을 시스템을 정해주는 기능
+    // 선택한 메뉴에 따라 기능을 시스템을 정해주는 기능
     public void chooseSystem (int selectNumber) {
         switch (selectNumber) {
             case 1:
@@ -17,7 +18,7 @@ public class AppController {
 
                 break;
             case 3:
-
+                service = new MovieService();
                 break;
             case 4:
                 System.out.println("# 프로그램을 종료합니다.");
