@@ -77,40 +77,62 @@ public class Main {
         makeLine();
 
         // 연습 5: Milan에 거주하는 거래자가 한명이라도 있는지 여부 확인?
-        boolean MilanList = transactions.stream()
-                .anyMatch(trs -> trs.getTrader().getCity().equals("Milan"));
+        boolean flag = transactions.stream()
+                .anyMatch(trs -> trs.getTrader().getCity().equalsIgnoreCase("milan"));
 
-        System.out.println("MilanList = " + MilanList);
+        System.out.println("any people lived in Milan? " + flag);
 
         makeLine();
 
         // 연습 6: Cambridge에 사는 거래자의 모든 거래액의 총합 출력.
-        int cambridgeValue = transactions.stream()
+        int totalValue = transactions.stream()
                 .filter(trs -> trs.getTrader().getCity().equals("Cambridge"))
                 .mapToInt(Transaction::getValue)
                 .sum();
+        System.out.println("totalValue = " + totalValue);
 
-        System.out.println("cambridgeValue = " + cambridgeValue);
+        /*
+        List<Integer> list = transactions.stream()
+                .filter(trs -> trs.getTrader().getCity().equalsIgnoreCase("cambridge"))
+                .map(Transaction::getValue)
+                .collect(toList());
+
+        int total = 0;
+        for (Integer i : list) {
+            total =+ i;
+        }
+        System.out.println("total = " + total);
+        */
 
         makeLine();
 
         // 연습 7: 모든 거래에서 최고 거래액은 얼마인가?
-        Transaction maxValue = transactions.stream()
+        /*
+        Transaction transaction = transactions.stream()
                 .max(comparing(Transaction::getValue))
                 .get();
 
+        System.out.println("maxValue = " + transaction.getValue());
+         */
+        int maxValue = transactions.stream()
+                .mapToInt(trs -> trs.getValue())
+                .max()
+                .getAsInt();
         System.out.println("maxValue = " + maxValue);
 
         makeLine();
 
         // 연습 8. 가장 작은 거래액을 가진 거래정보 탐색
+//        transactions.stream()
+//                .min(comparing(Transaction::getValue))
+//                .ifPresent(System.out::println);
+
 
         Transaction minValue = transactions.stream()
                 .min(comparing(Transaction::getValue))
                 .get();
 
         System.out.println("minValue = " + minValue);
-
 
     }
 
